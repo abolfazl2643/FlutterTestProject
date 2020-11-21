@@ -65,14 +65,13 @@ class _homeState extends State<home> with TickerProviderStateMixin {
             elevation: 0,
             backgroundColor: Colors.transparent,
             content: Container(
-              height: 100,
-              width: 300.0,
+              height: 120,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(0.5))),
               child: Padding(
                 padding: const EdgeInsets.only(left: 13),
                 child: Center(
                   child: Text(
-                    'You should click some where in the screen to find the hidden question (that might be an eye!)',
+                    'You should click some where in the screen to find the hidden question (that might be an eye!) you can\'t logout until find the answer',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
