@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "388363504033",
+    "firebase_url": "https://mim-9facf.firebaseio.com",
+    "project_id": "mim-9facf",
+    "storage_bucket": "mim-9facf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388363504033:android:89b2f0d90be5dd2048a3e0",
+        "android_client_info": {
+          "package_name": "com.example.minigram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388363504033-9iqp6jmkb16oi0q6vlaglnh0pnq2hcb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqzHaz4k_VQ-0gPC5Q0Ltz5LkrHNZmv4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388363504033-9iqp6jmkb16oi0q6vlaglnh0pnq2hcb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
