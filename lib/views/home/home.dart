@@ -15,7 +15,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
   Animation _animatedmargin;
   bool completed = false;
   Animation tinyreemargin;
-  double normalbeeropacity = 1;
+  bool redbeeris = false;
 
   @override
   Future<void> initState() {
@@ -61,104 +61,127 @@ class _homeState extends State<home> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     authclass _auth = authclass();
     return Scaffold(
-        body: Stack(children: [
-      Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              border: Border.all(color: Colors.black, width: 0)),
-          child: Stack(
-            children: [
-              RotatedBox(
-                  quarterTurns: 3,
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: SizedBox(
-                          height: 800.0,
-                          child: Image.asset('images/authum.png')))),
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Image.asset('images/redbeer.png')),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    normalbeeropacity = 0;
-                  });
-                },
-                child: Opacity(
-                  opacity: normalbeeropacity,
-                  child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Image.asset('images/beer.png')),
-                ),
-              ),
-              Align(
-                  alignment: Alignment.topRight,
-                  child: SafeArea(
-                      child: IconButton(
-                    icon: Icon(
-                      Icons.fullscreen_exit,
-                      size: 35,
+
+        body: Container(
+          decoration: BoxDecoration(image:DecorationImage(image:AssetImage('images/authum.png'),fit: BoxFit.fill )   ),
+          child: Stack(children: [
+
+      Align(
+            alignment: Alignment.bottomCenter,
+            child: Image.asset('images/redbeer.png')),
+      GestureDetector(
+          onTap: () {
+            showDialog(
+                context: context,
+                child: AlertDialog(
+                  backgroundColor: Colors.brown,
+                  content: Container(
+                    height: 150,
+                    child: Column(
+                      children: [
+                        Text(
+                          'Where is Hassan Saba\'s castle in Iran ? (give me a correct answer please ! ) ',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(height: 20.0  ,),
+                        TextField(decoration: InputDecoration(
+
+                            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(30)),
+                            ),
+                        )],
                     ),
-                    onPressed: () => _auth.signout(),
-                  ))),
-            ],
+                  ),
+                  actions: [
+                    Center(
+                        child: FlatButton(
+                            onPressed: null,
+                            child: Text('Go and search it in the google',
+                                style: TextStyle(color: Colors.white)))),
+                    Center(
+                      child: FlatButton(
+                        onPressed: null,
+                        child: Text(
+                          'Click here to submmit your answer',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    )
+                  ],
+                ));
+            setState(() {
+              redbeeris = !redbeeris;
+            });
+          },
+          child: Opacity(
+            opacity: redbeeris ? 0 : 1,
+            child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.asset('images/beer.png')),
           ),
-        ),
       ),
       Align(
-          alignment: Alignment.bottomCenter,
-          child: Image.asset(
-            'images/wildlife2.png',
-          )),
-      AnimatedBuilder(
-        animation: _controller,
-        builder: (context, _) => Align(
-          alignment: Alignment.bottomLeft,
-          child: Transform.rotate(
-            angle: 19,
-            child: Container(
-              margin: EdgeInsets.only(left: _animatedmargin.value, bottom: 100),
-              child: Image.asset(
-                'images/bird.png',
-                height: 100,
+            alignment: Alignment.topRight,
+            child: SafeArea(
+                child: IconButton(
+              icon: Icon(
+                Icons.fullscreen_exit,
+                size: 35,
               ),
-            ),
-          ),
-        ),
-      ),
-      AnimatedBuilder(
-        animation: _controller,
-        builder: (context, _) => Align(
-          alignment: Alignment.bottomRight,
-          child: Transform.rotate(
-            angle: 19,
-            child: Container(
-              margin:
-                  EdgeInsets.only(right: _animatedmargin.value, bottom: 100),
-              child: Image.asset(
-                'images/bird.png',
-                height: 150,
-              ),
-            ),
-          ),
-        ),
-      ),
-      AnimatedBuilder(
-        animation: _controller,
-        builder: (context, _) => Container(
-          margin: EdgeInsets.only(left: tinyreemargin.value),
-          child: Align(
+              onPressed: () => _auth.signout(),
+            ))),
+      Align(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
-              'images/tinytree.png',
-              height: 50,
+              'images/wildlife2.png',
+            )),
+      AnimatedBuilder(
+          animation: _controller,
+          builder: (context, _) => Align(
+            alignment: Alignment.bottomLeft,
+            child: Transform.rotate(
+              angle: 19,
+              child: Container(
+                margin: EdgeInsets.only(left: _animatedmargin.value, bottom: 100),
+                child: Image.asset(
+                  'images/bird.png',
+                  height: 100,
+                ),
+              ),
             ),
           ),
-        ),
       ),
-    ]));
+      AnimatedBuilder(
+          animation: _controller,
+          builder: (context, _) => Align(
+            alignment: Alignment.bottomRight,
+            child: Transform.rotate(
+              angle: 19,
+              child: Container(
+                margin:
+                    EdgeInsets.only(right: _animatedmargin.value, bottom: 100),
+                child: Image.asset(
+                  'images/bird.png',
+                  height: 150,
+                ),
+              ),
+            ),
+          ),
+      ),
+      AnimatedBuilder(
+          animation: _controller,
+          builder: (context, _) => Container(
+            margin: EdgeInsets.only(left: tinyreemargin.value),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Image.asset(
+                'images/tinytree.png',
+                height: 50,
+              ),
+            ),
+          ),
+      ),
+    ]),
+        ));
   }
 }
