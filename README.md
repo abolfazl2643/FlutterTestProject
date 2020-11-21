@@ -1,16 +1,2 @@
-# minigram
-
-A new Flutter application.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I've written this very small app as a work sample for a company that I sent resume to (this is just a 2 days project I will complete it in Future)
+As you know in some places in the would, FireBase is banned so please change your ip then start the app ,otherwaise you cant do anything ! 
