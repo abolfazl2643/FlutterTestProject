@@ -5,7 +5,7 @@ class authclass {
   FirebaseAuth _auth = FirebaseAuth.instance;
 //stream provider
   Stream<User> get sreamuser {
-    return _auth.authStateChanges().map((event) => event);
+    return _auth.authStateChanges();
   }
 //signing out
   Future signout() async {
@@ -14,7 +14,9 @@ class authclass {
 //signing out
   Future signin(String email, String password) async {
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      UserCredential singinuser = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      User user = singinuser.user;
+      print(user.email);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
