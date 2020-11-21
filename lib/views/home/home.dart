@@ -1,8 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:minigram/services/auth.dart';
-import 'package:minigram/views/Athentecation/loginPage.dart';
 
 class home extends StatefulWidget {
   @override
@@ -10,7 +8,6 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> with TickerProviderStateMixin {
-  authclass _auth = authclass();
   AnimationController _controller;
   Animation _animatedmargin;
   bool completed = false;

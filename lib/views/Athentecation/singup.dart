@@ -28,7 +28,6 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     authclass _auth = authclass();
-    final user = Provider.of<User>(context);
     return Scaffold(
       body: RotatedBox(
         quarterTurns: 8,
@@ -101,7 +100,7 @@ class _SignUpState extends State<SignUp> {
                               padding: const EdgeInsets.only(bottom: 16),
                               child: Material(
                                 elevation: 16,
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(50),
                                 color: Colors.green[200],
                                 child: MaterialButton(
                                   elevation: 18,
@@ -133,17 +132,23 @@ class _SignUpState extends State<SignUp> {
                                         MaterialPageRoute(
                                           builder: (context) => Loginpage(),
                                         )),
-                                    child: Text(
-                                      'Click here !',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        shadows: [
-                                          Shadow(
-                                            blurRadius: 15.0,
-                                            color: Colors.black,
-                                            offset: Offset(1.0, 1.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.green[100],width: 3)),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(3.0),
+                                        child: Text(
+                                          'Click here !',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            shadows: [
+                                              Shadow(
+                                                blurRadius: 15.0,
+                                                color: Colors.green,
+                                                offset: Offset(1.0, 1.0),
+                                              ),
+                                            ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     )),
                               ],

@@ -87,12 +87,11 @@ class _LoginpageState extends State<Loginpage> {
                           Padding(
                             padding: const EdgeInsets.only(bottom:16),
                             child: Material(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(50),
                               color: Colors.orange[200],
                               elevation: 15,
                               child: MaterialButton(
                                 elevation: 18,
-                                animationDuration: Duration(seconds: 1),
                                 onPressed: () async {
                                   setState(() {
                                     loading = true;
@@ -123,17 +122,24 @@ class _LoginpageState extends State<Loginpage> {
                                       MaterialPageRoute(
                                         builder: (context) => SignUp(),
                                       )),
-                                  child: Text(
-                                    'Click here !',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      shadows: [
-                                        Shadow(
-                                          blurRadius: 15.0,
-                                          color: Colors.black,
-                                          offset: Offset(1.0, 1.0),
+                                  child: Container(
+
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.orange[200],width: 3)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(3.0),
+                                      child: Text(
+                                        'Click here !',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          shadows: [
+                                            Shadow(
+                                              blurRadius: 15.0,
+                                              color: Colors.orange[200],
+                                              offset: Offset(1.0, 1.0),
+                                            ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   )),
                             ],
