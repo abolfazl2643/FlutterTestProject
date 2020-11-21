@@ -24,9 +24,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
     super.initState();
     _controller =
         AnimationController(duration: Duration(seconds: 3), vsync: this);
-    
-    
-    
+
     _animatedmargin = TweenSequence(
       [
         TweenSequenceItem(tween: Tween(begin: 0.0, end: 10.0), weight: 30.0),
@@ -64,7 +62,26 @@ class _homeState extends State<home> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     authclass _auth = authclass();
     return GestureDetector(
-      onTap: () => showDialog(context: context,child: AlertDialog(content: Text('You should click some where in the screen to find the hidden question (that might be an eye!)'),)),
+      onTap: () => showDialog(
+          context: context,
+          child: AlertDialog(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            content: Container(
+              height: 100,
+              width: 300.0,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(0.5))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 13),
+                child: Center(
+                  child: Text(
+                    'You should click some where in the screen to find the hidden question (that might be an eye!)',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          )),
       child: Scaffold(
           body: Container(
         decoration: BoxDecoration(
@@ -81,24 +98,33 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: AlertDialog(
-                      backgroundColor: Colors.brown,
+                      elevation: 0,
+                      backgroundColor: Colors.transparent,
                       content: Container(
                         height: 150,
                         child: Column(
                           children: [
                             Text(
-                              'Where is Hassan Saba\'s castle in Iran ? (give me a correct answer please ! ) ',
+                              'Where is Hassan Saba\'s castle in Iran ? (Area name required!) ',
                               style: TextStyle(color: Colors.white),
                             ),
                             SizedBox(
                               height: 20.0,
                             ),
-                            TextField(
-                              controller: _inputcontrollet,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.white),
-                                    borderRadius: BorderRadius.circular(30)),
+                            Container(
+                              height: 45,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
+                              child: TextField(
+                                style: TextStyle(color: Colors.white),
+                                textAlign: TextAlign.center,
+                                controller: _inputcontrollet,
+                                decoration: InputDecoration(
+
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.white, width: 20),
+                                      borderRadius: BorderRadius.circular(30)),
+                                ),
                               ),
                             )
                           ],
@@ -107,17 +133,24 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                       actions: [
                         Center(
                           child: FlatButton(
-                            color: Colors.brown[400],
-                            onPressed:() => Navigator.pop(context) ,
-                            child: Text(
-                              'Close this and search it in the google',
-                              style: TextStyle(color: Colors.white),
+                            color: Colors.transparent,
+                            onPressed: () => Navigator.pop(context),
+                            child: Container(
+                              height: 25,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: Text(
+                                  'Close this and search it in the Google',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
                             ),
                           ),
                         ),
                         Center(
                           child: FlatButton(
-                            color: Colors.brown[400],
+                            color: Colors.transparent,
                             onPressed: () {
                               if (_inputcontrollet.text == 'alamout') {
                                 Navigator.pop(context);
@@ -126,27 +159,33 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: AlertDialog(
-
-                                        backgroundColor: Colors.brown,
+                                        elevation: 0,
+                                        backgroundColor: Colors.transparent,
                                         content: Wrap(
                                           children: [
                                             Text(
-                                              'You have found the correct answer , congratulations !',
-                                              style: TextStyle(fontSize: 22),
+                                              'You have found the correct answer,congratulations!',
+                                              style: TextStyle(fontSize: 22 , color: Colors.white),
                                             ),
                                             SizedBox(
                                               height: 3,
                                             ),
                                             FlatButton(
-                                                color: Colors.brown[400],
-                                                onPressed: (){
-                                                  _auth.signout();
-                                                  Navigator.pop(context);
 
-
-                                                },
-                                                child:
-                                                    Text('Lets get out of here ! '))
+                                              color: Colors.transparent,
+                                              onPressed: () {
+                                                _auth.signout();
+                                                Navigator.pop(context);
+                                              },
+                                              child: Container(
+                                                height: 25,
+                                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
+                                                child: Center(
+                                                  child: Text(
+                                                      'Lets get out of here ! ',style: TextStyle(color: Colors.white),),
+                                                ),
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ),
@@ -156,14 +195,25 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                                 showDialog(
                                     context: context,
                                     child: AlertDialog(
-                                      backgroundColor: Colors.brown,
-                                      content: Text('trymore !'),
+                                      elevation: 0,
+                                      backgroundColor: Colors.transparent,
+                                      content: Container(
+                                          height: 100,
+                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(0.2))),
+                                          child: Center(child: Text('Try more !',style: TextStyle(color: Colors.white ,fontSize: 22 ),))),
                                     ));
                               }
                             },
-                            child: Text(
-                              'Click here to submmit your answer',
-                              style: TextStyle(color: Colors.white),
+                            child: Container(
+                              height: 25,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: Text(
+                                  'Click here to submmit your answer',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
                             ),
                           ),
                         )
@@ -181,7 +231,6 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                   child: Image.asset('images/beer.png')),
             ),
           ),
-
           Align(
               alignment: Alignment.bottomCenter,
               child: Image.asset(
@@ -211,8 +260,8 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               child: Transform.rotate(
                 angle: 19,
                 child: Container(
-                  margin:
-                      EdgeInsets.only(right: _animatedmargin.value, bottom: 100),
+                  margin: EdgeInsets.only(
+                      right: _animatedmargin.value, bottom: 100),
                   child: Image.asset(
                     'images/bird.png',
                     height: 150,
@@ -224,7 +273,6 @@ class _homeState extends State<home> with TickerProviderStateMixin {
           AnimatedBuilder(
             animation: _controller,
             builder: (context, _) => Container(
-
               margin: EdgeInsets.only(left: tinyreemargin.value),
               child: Align(
                 alignment: Alignment.bottomCenter,
@@ -235,7 +283,6 @@ class _homeState extends State<home> with TickerProviderStateMixin {
               ),
             ),
           ),
-
         ]),
       )),
     );
