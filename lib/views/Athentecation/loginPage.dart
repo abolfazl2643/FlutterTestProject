@@ -97,6 +97,7 @@ class _LoginpageState extends State<Loginpage> {
                                 },
                                 controller: _passwordcontroller,
                                 textAlign: TextAlign.center,
+                                obscureText: true,
                                 decoration: InputDecoration(
                                     border: OutlineInputBorder(
                                         borderRadius:

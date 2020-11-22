@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  transparent_image: ^1.0.0
+  test:
   firebase_core: ^0.5.2
   firebase_auth: ^0.18.3
   provider: ^4.3.2+2

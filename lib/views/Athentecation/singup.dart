@@ -97,6 +97,7 @@ class _SignUpState extends State<SignUp> {
                             },
                             controller: _passwordcontroller,
                             textAlign: TextAlign.center,
+                            obscureText: true,
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30)),

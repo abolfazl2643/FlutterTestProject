@@ -109,6 +109,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             ),
                             Container(
                               height: 45,
+                              width: 200,
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
                               child: TextField(
                                 style: TextStyle(color: Colors.white),
@@ -132,10 +133,10 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             color: Colors.transparent,
                             onPressed: () => Navigator.pop(context),
                             child: Container(
-                              height: 25,
+
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
                               child: Padding(
-                                padding: const EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   'Close this and search it in the Google',
                                   style: TextStyle(color: Colors.white),
@@ -174,11 +175,14 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                                                 Navigator.pop(context);
                                               },
                                               child: Container(
-                                                height: 25,
+
                                                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
                                                 child: Center(
-                                                  child: Text(
-                                                      'Lets get out of here ! ',style: TextStyle(color: Colors.white),),
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(8.0),
+                                                    child: Text(
+                                                        'Lets get out of here ! ',style: TextStyle(color: Colors.white),),
+                                                  ),
                                                 ),
                                               ),
                                             )
@@ -201,10 +205,10 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                               }
                             },
                             child: Container(
-                              height: 25,
+
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),border: Border.all(color: Colors.white.withOpacity(1))),
                               child: Padding(
-                                padding: const EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   'Click here to submmit your answer',
                                   style: TextStyle(color: Colors.white),
