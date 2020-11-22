@@ -17,6 +17,7 @@ class authclass {
       UserCredential singinuser = await _auth.signInWithEmailAndPassword(email: email, password: password);
       User user = singinuser.user;
       print(user.email);
+      return user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -33,6 +34,7 @@ class authclass {
       UserCredential usercredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
       User user = usercredential.user;
+      return user ;
     } on FirebaseAuthException catch (err) {
       if (err.code == 'email-already-in-use') {
         print('The account already exists for that email.');
