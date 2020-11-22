@@ -21,7 +21,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _passwordcontroller = TextEditingController();
    String error  ;
   bool loading = false;
-  String massage = '' ;
+  String massage = ' ' ;
   void starttimer(){
     Timer(Duration(seconds: 9), () {
 
