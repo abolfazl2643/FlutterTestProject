@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,16 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _passwordcontroller = TextEditingController();
    String error  ;
   bool loading = false;
+  String massage = '' ;
+  void starttimer(){
+    Timer(Duration(seconds: 9), () {
+
+      setState(() {
+        loading = false;
+        massage = 'Somthing went wrong ! did you turn your vpn on ?';
+      });
+    });
+  }
   @override
   void initState() {
     // TODO: implement initState
@@ -109,6 +121,7 @@ class _SignUpState extends State<SignUp> {
                                     setState(() {
                                       loading = true;
                                     });
+                                    starttimer();
                                     if (_formkey.currentState.validate()) {
                                       FirebaseAuth _result = await _auth.signup(
                                           _emailcontroller.text,
@@ -153,7 +166,7 @@ class _SignUpState extends State<SignUp> {
                                     )),
                               ],
                             ),
-                            loading ? CircularProgressIndicator() : Text('')
+                            loading ? CircularProgressIndicator() : Text(massage)
                           ],
                         )
                       ],
